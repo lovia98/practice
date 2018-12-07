@@ -31,6 +31,8 @@ public class Practice2_2 {
     Publisher<StringBuilder> reducePub = reducePub(pub, new StringBuilder(),
         (BiFunction<StringBuilder, Integer, StringBuilder>) (a, b) -> a.append(b+","));
     reducePub.subscribe(logSub());
+
+
   }
 
   private <T, R> Publisher<R> reducePub(Publisher<T> pub, R init,

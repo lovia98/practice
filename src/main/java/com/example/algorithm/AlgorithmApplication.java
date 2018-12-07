@@ -1,6 +1,10 @@
 package com.example.algorithm;
 
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
@@ -11,104 +15,35 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.client.Netty4ClientHttpRequestFactory;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import org.springframework.util.concurrent.FailureCallback;
 import org.springframework.util.concurrent.ListenableFuture;
+import org.springframework.util.concurrent.ListenableFutureCallback;
+import org.springframework.util.concurrent.SuccessCallback;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.AsyncRestTemplate;
 
 @SpringBootApplication
 @Slf4j
 @EnableAsync
 public class AlgorithmApplication {
 
+  public static void main(String[] args) {
+    SpringApplication.run(AlgorithmApplication.class, args);
+  }
+
   @RestController
   public static class MyController {
 
-    @GetMapping("/async")
-    public String async() {
 
-    }
   }
-
-  @Component
-  public static class MyService {
-
-    @Async(value = "tp")
-    //public Future<String> hello() throws InterruptedException {
-    public ListenableFuture<String> hello() throws InterruptedException {
-      log.info("hello()");
-      Thread.sleep(2000);
-      return new AsyncResult<>("Hello");
-    }
-  }
-
-//  @Bean
-//  ThreadPoolTaskExecutor tp() {
-//
-//    ThreadPoolTaskExecutor te = new ThreadPoolTaskExecutor();
-//    te.setCorePoolSize(10);
-//    te.setMaxPoolSize(100);
-//    te.setQueueCapacity(200);
-//    te.setThreadNamePrefix("myThread");
-//    te.initialize();
-//
-//    return te;
-//  }
-
-  public static void main(String[] args) {
-
-    try(ConfigurableApplicationContext c = SpringApplication.run(AlgorithmApplication.class, args)) {
-
-    }
-  }
-
-//  @Autowired
-//  MyService myService;
-//
-//  @Bean
-//  ApplicationRunner run() {
-//    return args -> {
-//      log.info("run()");
-//
-//      ListenableFuture<String> f = myService.hello();
-//      f.addCallback(s-> System.out.println(s)
-//        , e-> System.out.println(e.getMessage()));
-//
-//      log.info("exit");
-//
-////      Future<String> f = myService.hello();
-////      log.info("exit: " + f.isDone());
-//    };
-//  }
-
-
-//  @RestController
-//  public static class Controller {
-//
-//    @RequestMapping("/hello")
-//    public Publisher<String> hello(String name) {
-//      return new Publisher<String>() {
-//        @Override
-//        public void subscribe(Subscriber<? super String> s) {
-//          s.onSubscribe(new Subscription() {
-//            @Override
-//            public void request(long n) {
-//              s.onNext("Hello " + name);
-//              s.onComplete();
-//            }
-//
-//            @Override
-//            public void cancel() {
-//
-//            }
-//          });
-//        }
-//      };
-//    }
-//  }
 }
