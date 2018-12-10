@@ -32,9 +32,9 @@ public class Practice2_1 {
     Publisher<Integer> pub = iterPub(
         Stream.iterate(1, a -> a + 1).limit(10).collect(Collectors.toList()));
 
-    //Publisher<Integer> mapPub = mapPub(pub, (Function<Integer, Integer>) s -> s * 10);
-    //Publisher<Integer> map2Pub = mapPub(pub, (Function<Integer, Integer>) s -> -s);
-    //Publisher<Integer> sumPub = sumPub(pub);
+    //BusDataPublisher<Integer> mapPub = mapPub(pub, (Function<Integer, Integer>) s -> s * 10);
+    //BusDataPublisher<Integer> map2Pub = mapPub(pub, (Function<Integer, Integer>) s -> -s);
+    //BusDataPublisher<Integer> sumPub = sumPub(pub);
     Publisher<Integer> reducePub = reducePub(pub, 0,
         (BiFunction<Integer, Integer, Integer>) (a, b) -> a + b);
 

@@ -20,12 +20,12 @@ public class Practice2_2 {
     Publisher<Integer> pub = iterPub(
         Stream.iterate(1, a -> a + 1).limit(10).collect(Collectors.toList()));
 
-//    Publisher<String> mapPub = biMapPub(pub,
+//    BusDataPublisher<String> mapPub = biMapPub(pub,
 //        (Function<Integer, String>) (s) -> "["+ s+ "]");
 //
 //    mapPub.subscribe(logSub());
 
-//    Publisher<String> reducePub = reducePub(pub, "",
+//    BusDataPublisher<String> reducePub = reducePub(pub, "",
 //        (BiFunction<String, Integer, String>) (a, b) -> a + "-" + b);
 
     Publisher<StringBuilder> reducePub = reducePub(pub, new StringBuilder(),

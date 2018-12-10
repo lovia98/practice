@@ -25,7 +25,7 @@ public class Practice1_2 {
 
   @Test
   public void pubSub1() {
-    //Publisher <- Observable
+    //BusDataPublisher <- Observable
     //Subscriber <- Observer
     Iterable<Integer> itr = Arrays.asList(1, 2, 3, 4, 5);
 
@@ -103,7 +103,7 @@ public class Practice1_2 {
   @Test
   public void pubSub2() throws InterruptedException {
 
-    //Publisher <- Observable
+    //BusDataPublisher <- Observable
     //Subscriber <- Observer
     Iterable<Integer> itr = Arrays.asList(1, 2, 3, 4, 5);
     ExecutorService es = Executors.newCachedThreadPool();
