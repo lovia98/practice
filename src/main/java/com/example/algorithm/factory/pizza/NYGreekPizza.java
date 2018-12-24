@@ -1,5 +1,7 @@
 package com.example.algorithm.factory.pizza;
 
+import com.example.algorithm.factory.OrderPizzaPractice.PizzaIngredientFactory;
+
 /**
  * @author 한주희
  * @vesion 1.0
@@ -7,11 +9,18 @@ package com.example.algorithm.factory.pizza;
  */
 public class NYGreekPizza extends Pizza {
 
-  public NYGreekPizza() {
-    name = "nypizza";
-    dough = "nydouh";
-    sauce = "sauce";
+  PizzaIngredientFactory ingredientFactory;
 
-    toppings.add("greek");
+  public NYGreekPizza(
+      PizzaIngredientFactory ingredientFactory) {
+    this.ingredientFactory = ingredientFactory;
+  }
+
+  @Override
+  public void prepare() {
+    System.out.println("Preparing " + name);
+    dough = ingredientFactory.createDough();
+    sauce = ingredientFactory.createSauce();
+    cheese = ingredientFactory.createCheese();
   }
 }
