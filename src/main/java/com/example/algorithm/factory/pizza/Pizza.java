@@ -1,7 +1,11 @@
 package com.example.algorithm.factory.pizza;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.example.algorithm.factory.ingredient.Cheese;
+import com.example.algorithm.factory.ingredient.Clams;
+import com.example.algorithm.factory.ingredient.Dough;
+import com.example.algorithm.factory.ingredient.Pepperoni;
+import com.example.algorithm.factory.ingredient.Sauce;
+import com.example.algorithm.factory.ingredient.Veggies;
 
 /**
  * @author 한주희
@@ -11,18 +15,14 @@ import java.util.List;
 public abstract class Pizza {
 
   protected String name;
-  protected String dough;
-  protected String sauce;
-  protected List toppings = new ArrayList();
+  protected Dough dough;
+  protected Sauce sauce;
+  protected Veggies veggies[];
+  protected Cheese cheese;
+  protected Pepperoni pepperoni;
+  protected Clams clam;
 
-  public void prepare() {
-
-    System.out.println("preparing " + name);
-    System.out.println("dough " + dough);
-    System.out.println("preparing " + sauce);
-    toppings.forEach(System.out::println);
-
-  }
+  public abstract void prepare();
 
   public void bake() {
     System.out.println("bake 35");
@@ -36,7 +36,11 @@ public abstract class Pizza {
     System.out.println("place pizza in red box");
   }
 
-  public String getName() {
-    return name;
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String toString() {
+    return "[Pizza name = " + name + "]";
   }
 }
