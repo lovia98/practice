@@ -15,7 +15,7 @@ public class Dijkstra {
 
     //각 정점의 비용을 저장하는 해시테이블
     Map<String, Map> costs = new HashMap<>();
-    costs.put();
+
   }
 
   private void makeGraph(Map<String, Map> graph) {
