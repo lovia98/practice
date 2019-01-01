@@ -1,11 +1,11 @@
 package com.example.algorithm;
 
-import com.example.algorithm.observer.AppPush;
-import com.example.algorithm.observer.FineDustData;
-import com.example.algorithm.observer.SMS;
-import com.example.algorithm.observer2.AppPush_;
-import com.example.algorithm.observer2.FineDustData_;
-import com.example.algorithm.observer2.SMS_;
+import com.example.study.observer.AppPush;
+import com.example.study.observer.FineDustData;
+import com.example.study.observer.SMS;
+import com.example.study.observer2.AppPush_;
+import com.example.study.observer2.FineDustData_;
+import com.example.study.observer2.SMS_;
 import org.junit.Test;
 
 /**
