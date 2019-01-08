@@ -16,8 +16,6 @@ import com.example.study.factory.ingredient.Sauce;
 import com.example.study.factory.ingredient.SlicePepperoni;
 import com.example.study.factory.ingredient.ThinCrustDough;
 import com.example.study.factory.ingredient.Veggies;
-import com.example.algorithm.factory.pizza.*;
-import com.example.algorithm.factory.pizzaStore.*;
 import com.example.study.factory.pizza.ChicagoCheesePizza;
 import com.example.study.factory.pizza.ChicagoGreekPizza;
 import com.example.study.factory.pizza.ChicagoNormalPizza;
