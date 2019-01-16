@@ -2,7 +2,6 @@ package com.example.study.algorithm.basic;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.Map;
 import org.junit.Test;
 
 public class Prime {
